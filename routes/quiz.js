@@ -4,9 +4,9 @@ var fs = require('fs');
 var { GoogleGenerativeAI } = require('@google/generative-ai');
 var router = express.Router();
 const { PDFParse } = require('pdf-parse');
+require('dotenv').config();
 
-// Initialize Gemini AI - add your API key here
-const genAI = new GoogleGenerativeAI('AIzaSyDeyTUQwJoFoUTwc0jQW3A7n-7l1fpvDkw');
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 // Configure multer for file uploads
 var storage = multer.diskStorage({
@@ -81,7 +81,7 @@ async function generateRealQuiz(filePath, filename) {
         const parser = new PDFParse({ url: filePath });
 
         fileContent = (await parser.getText()).text;
-        console.log(fileContent);
+        // console.log(fileContent);
     } else {
         // For TXT files
         fileContent = fs.readFileSync(filePath, 'utf8');

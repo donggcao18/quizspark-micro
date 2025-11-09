@@ -2,6 +2,7 @@
   <configuration default="false" name="bin\www" type="NodeJSConfigurationType" path-to-js-file="bin/www" working-dir="$PROJECT_DIR$">
     <envs>
       <env name="DEBUG" value="quizspark:*" />
+      <env name="GEMINI_API_KEY" value="AIzaSyBlbxw9eDeg9-79GvOoKmZv_LdpCv9b4_c" />
     </envs>
     <EXTENSION ID="com.intellij.lang.javascript.buildTools.npm.rc.StartBrowserRunConfigurationExtension">
       <browser url="http://localhost:3000/" />
